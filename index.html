@@ -1,68 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Artem Logush | ML Developer</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <h1>Artem Logush</h1>
-  <p>Machine Learning & Python Developer</p>
-</header>
+  <!-- Top navigation -->
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div>Artem Logush</div>
+      </div>
 
-<section>
-  <h2>About me</h2>
-  <p>
-    I am a student and machine learning developer focused on time series forecasting,
-    neural networks, and data processing using Python and PyTorch.
-  </p>
-</section>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contacts">Contacts</a>
+      </div>
 
-<section>
-  <h2>Projects</h2>
-  <ul>
-    <li>
-      <b>EnergyCast Poland</b> – electricity consumption forecasting (ANN, PyTorch)<br>
-      <a href="projects.html">Project details</a> |
-      <a href="https://github.com/Artiprt107/EnergyCast-Poland" target="_blank">GitHub</a>
-    </li>
-  </ul>
-</section>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="projects.html">View Projects</a>
+        <a class="btn" href="https://github.com/Artiprt107" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
 
-<section>
-  <h2>Skills</h2>
-  <ul>
-    <li>Python</li>
-    <li>PyTorch</li>
-    <li>Pandas / NumPy</li>
-    <li>Scikit-learn</li>
-    <li>Time Series Forecasting</li>
-    <li>Data Preprocessing</li>
-    <li>Git / GitHub</li>
-  </ul>
-</section>
+  <div class="container">
 
-<section>
-  <h2>Contacts</h2>
-  <p>
-    GitHub:
-    <a href="https://github.com/Artiprt107" target="_blank">
-      https://github.com/Artiprt107
-    </a>
-  </p>
-  <p>
-    Email:
-    <a href="mailto:a.logush2020@gmail.com">
-      a.logush2020@gmail.com
-    </a>
-  </p>
-</section>
+    <!-- Hero -->
+    <div class="hero">
+      <div class="card card-pad">
+        <p class="kicker">Machine Learning • Python • Time Series</p>
+        <h1>ML Developer building clean pipelines and forecasts</h1>
+        <p class="subtitle">
+          I focus on time series forecasting, neural networks, and data processing using Python and PyTorch.
+          This portfolio highlights my learning projects and engineering-style structure.
+        </p>
 
-<footer style="text-align:center; margin-top:40px; color:#94a3b8;">
-  © 2026 Artem Logush
-</footer>
+        <div class="pills">
+          <span class="pill">Python</span>
+          <span class="pill">PyTorch</span>
+          <span class="pill">Pandas / NumPy</span>
+          <span class="pill">Scikit-learn</span>
+          <span class="pill">Forecasting</span>
+          <span class="pill">Git / GitHub</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projects.html">Open Projects</a>
+          <a class="btn" href="https://github.com/Artiprt107/EnergyCast-Poland" target="_blank" rel="noopener">
+            EnergyCast Poland Repo
+          </a>
+          <a class="btn" href="#contacts">Contact</a>
+        </div>
+      </div>
+
+      <div class="card card-pad profile">
+        <div class="avatar">
+          <img src="profile.jpg" alt="Profile photo of Artem Logush" />
+        </div>
+        <div class="pills">
+          <span class="pill">Ukraine</span>
+          <span class="pill">Student</span>
+          <span class="pill">Open to opportunities</span>
+        </div>
+        <p class="muted" style="margin:0;">
+          Tip: If you don’t want a real photo, you can replace <b>profile.jpg</b> with any image.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sections -->
+    <div class="section">
+      <div class="grid">
+        <div class="card card-pad col-8">
+          <h2>About</h2>
+          <p class="muted" style="margin:0;">
+            I build end-to-end ML pipelines: preprocessing → model training → inference → evaluation/visualization.
+            I care about clean structure, reproducibility, and readable code.
+          </p>
+        </div>
+
+        <div class="card card-pad col-4">
+          <h2>Highlighted project</h2>
+          <div class="project">
+            <div class="project-title">
+              <b>EnergyCast Poland</b>
+              <span class="badge">PyTorch ANN</span>
+            </div>
+            <p class="muted" style="margin:0;">
+              24-hour electricity consumption forecasting using historical energy + weather features.
+            </p>
+            <div class="hero-actions" style="margin-top:8px;">
+              <a class="btn btn-primary" href="projects.html">Details</a>
+              <a class="btn" href="https://github.com/Artiprt107/EnergyCast-Poland" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="skills">
+      <div class="card card-pad">
+        <h2>Skills</h2>
+        <div class="grid">
+          <div class="col-6">
+            <b>ML & Data</b>
+            <ul class="list">
+              <li>Time series forecasting</li>
+              <li>Neural networks (ANN) in PyTorch</li>
+              <li>Data preprocessing & normalization</li>
+              <li>Train/test split (time-ordered)</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <b>Engineering</b>
+            <ul class="list">
+              <li>Clean project structure (src/scripts)</li>
+              <li>Reproducible runs and simple CLI runners</li>
+              <li>Git & GitHub workflows</li>
+              <li>Readable code and modular design</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="contacts">
+      <div class="card card-pad">
+        <h2>Contacts</h2>
+        <p style="margin: 0 0 8px;">
+          GitHub:
+          <a href="https://github.com/Artiprt107" target="_blank" rel="noopener">https://github.com/Artiprt107</a>
+        </p>
+        <p style="margin: 0;">
+          Email:
+          <a href="mailto:a.logush2020@gmail.com">a.logush2020@gmail.com</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">© 2026 Artem Logush</div>
+  </div>
 
 </body>
 </html>
