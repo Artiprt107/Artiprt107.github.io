@@ -1,4 +1,4 @@
-// app.js — language toggle + reveal animations + ZIP download animation + sticky close
+// app.js — language toggle + reveal animations + ZIP download animation
 
 const I18N = {
   en: {
@@ -64,8 +64,7 @@ const I18N = {
 
     // Sticky bar
     sticky_zip_title: "EnergyCast Poland",
-    sticky_zip_sub: "Download project ZIP from GitHub",
-    btn_close: "Close"
+    sticky_zip_sub: "Download project ZIP from GitHub"
   },
 
   ru: {
@@ -131,8 +130,7 @@ const I18N = {
 
     // Sticky bar
     sticky_zip_title: "EnergyCast Poland",
-    sticky_zip_sub: "Скачать ZIP проекта с GitHub",
-    btn_close: "Закрыть"
+    sticky_zip_sub: "Скачать ZIP проекта с GitHub"
   }
 };
 
@@ -152,10 +150,6 @@ function setLang(lang) {
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
-
-  // Optional: update close button label for accessibility (aria-label)
-  const closeBtn = document.getElementById("stickyZipClose");
-  if (closeBtn && dict.btn_close) closeBtn.setAttribute("aria-label", dict.btn_close);
 }
 
 function initLang() {
@@ -219,29 +213,8 @@ function initZipDownloadAnimation() {
   });
 }
 
-// Sticky close (remember hidden)
-const STICKY_KEY = "sticky_zip_closed";
-
-function initStickyClose() {
-  const bar = document.getElementById("stickyZipBar");
-  const btn = document.getElementById("stickyZipClose");
-  if (!bar || !btn) return;
-
-  // restore hidden state
-  if (localStorage.getItem(STICKY_KEY) === "1") {
-    bar.style.display = "none";
-    return;
-  }
-
-  btn.addEventListener("click", () => {
-    bar.style.display = "none";
-    localStorage.setItem(STICKY_KEY, "1");
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   initLang();
   initRevealAnimations();
   initZipDownloadAnimation();
-  initStickyClose();
 });
