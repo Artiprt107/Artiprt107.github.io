@@ -1,0 +1,175 @@
+// app.js — language toggle + animations
+
+const I18N = {
+  en: {
+    nav_home: "Home",
+    nav_projects: "Projects",
+    nav_skills: "Skills",
+    nav_contacts: "Contacts",
+    nav_download: "Download ZIP",
+
+    hero_kicker: "Machine Learning • Python • Time Series",
+    hero_title: "ML Developer building clean pipelines and forecasts",
+    hero_subtitle:
+      "I focus on time series forecasting, neural networks, and data processing using Python and PyTorch. This portfolio highlights my learning projects and engineering-style structure.",
+    hero_btn_projects: "Open Projects",
+    hero_btn_repo: "EnergyCast Poland Repo",
+    hero_btn_contact: "Contact",
+
+    about_title: "About",
+    about_text:
+      "I build end-to-end ML pipelines: preprocessing → model training → inference → evaluation/visualization. I care about clean structure, reproducibility, and readable code.",
+
+    highlight_title: "Highlighted project",
+    highlight_desc:
+      "24-hour electricity consumption forecasting using historical energy + weather features.",
+
+    skills_title: "Skills",
+    skills_ml: "ML & Data",
+    skills_eng: "Engineering",
+    skills_ml_1: "Time series forecasting",
+    skills_ml_2: "Neural networks (ANN) in PyTorch",
+    skills_ml_3: "Data preprocessing & normalization",
+    skills_ml_4: "Train/test split (time-ordered)",
+    skills_eng_1: "Clean project structure (src/scripts)",
+    skills_eng_2: "Reproducible runs and simple runners",
+    skills_eng_3: "Git & GitHub workflows",
+    skills_eng_4: "Readable code and modular design",
+
+    contacts_title: "Contacts",
+    footer: "© 2026 Artem Logush",
+
+    projects_page_kicker: "Portfolio",
+    projects_page_title: "Projects",
+    projects_page_subtitle: "A short overview of my projects with links and key details.",
+    proj_energy_title: "EnergyCast Poland",
+    proj_energy_tag: "Time Series • PyTorch",
+    proj_energy_desc:
+      "Electricity consumption forecasting for the next 24 hours using an ANN model trained on historical energy + weather features. Clean modular pipeline: preprocessing → training → inference.",
+    proj_features: "Key features",
+    proj_stack: "Tech stack",
+    proj_feat_1: "Sliding window: 30 days → 24h forecast",
+    proj_feat_2: "Normalization via MinMaxScaler",
+    proj_feat_3: "PyTorch ANN (512 → 256 → 24)",
+    proj_feat_4: "Inference pipeline + plots",
+    proj_feat_5: "CSV + optional binary export",
+    proj_stack_1: "Python, PyTorch",
+    proj_stack_2: "Pandas, NumPy",
+    proj_stack_3: "Scikit-learn, Joblib",
+    proj_stack_4: "Matplotlib",
+    proj_stack_5: "Git/GitHub",
+    btn_view_repo: "View Repository",
+    btn_download_zip: "Download ZIP",
+    btn_back_home: "Back to Home"
+  },
+
+  ru: {
+    nav_home: "Главная",
+    nav_projects: "Проекты",
+    nav_skills: "Навыки",
+    nav_contacts: "Контакты",
+    nav_download: "Скачать ZIP",
+
+    hero_kicker: "Machine Learning • Python • Time Series",
+    hero_title: "ML-разработчик: чистые пайплайны и прогнозы",
+    hero_subtitle:
+      "Я занимаюсь прогнозированием временных рядов, нейросетями и обработкой данных на Python и PyTorch. Это портфолио показывает учебные проекты и инженерный подход к структуре кода.",
+    hero_btn_projects: "Открыть проекты",
+    hero_btn_repo: "Репозиторий EnergyCast Poland",
+    hero_btn_contact: "Контакты",
+
+    about_title: "Обо мне",
+    about_text:
+      "Делаю end-to-end ML пайплайны: препроцессинг → обучение модели → инференс → оценка/визуализация. Важны чистая структура, воспроизводимость и читаемый код.",
+
+    highlight_title: "Главный проект",
+    highlight_desc:
+      "Прогноз потребления электроэнергии на 24 часа по историческим данным и погоде.",
+
+    skills_title: "Навыки",
+    skills_ml: "ML и данные",
+    skills_eng: "Инженерия",
+    skills_ml_1: "Прогнозирование временных рядов",
+    skills_ml_2: "Нейросети (ANN) на PyTorch",
+    skills_ml_3: "Препроцессинг и нормализация",
+    skills_ml_4: "Разделение train/test по времени",
+    skills_eng_1: "Чистая структура проекта (src/scripts)",
+    skills_eng_2: "Воспроизводимые запуски и runner-скрипты",
+    skills_eng_3: "Git и GitHub",
+    skills_eng_4: "Модульный дизайн и читаемый код",
+
+    contacts_title: "Контакты",
+    footer: "© 2026 Artem Logush",
+
+    projects_page_kicker: "Портфолио",
+    projects_page_title: "Проекты",
+    projects_page_subtitle: "Коротко о проектах, ссылки и ключевые детали.",
+    proj_energy_title: "EnergyCast Poland",
+    proj_energy_tag: "Time Series • PyTorch",
+    proj_energy_desc:
+      "Прогноз потребления электроэнергии на 24 часа с помощью ANN, обученной на исторических данных и погодных признаках. Чистый пайплайн: данные → обучение → прогноз.",
+    proj_features: "Функции",
+    proj_stack: "Технологии",
+    proj_feat_1: "Скользящее окно: 30 дней → 24 часа",
+    proj_feat_2: "Нормализация MinMaxScaler",
+    proj_feat_3: "PyTorch ANN (512 → 256 → 24)",
+    proj_feat_4: "Инференс + графики",
+    proj_feat_5: "CSV + опциональный BIN экспорт",
+    proj_stack_1: "Python, PyTorch",
+    proj_stack_2: "Pandas, NumPy",
+    proj_stack_3: "Scikit-learn, Joblib",
+    proj_stack_4: "Matplotlib",
+    proj_stack_5: "Git/GitHub",
+    btn_view_repo: "Открыть репозиторий",
+    btn_download_zip: "Скачать ZIP",
+    btn_back_home: "Назад"
+  }
+};
+
+const LANG_KEY = "portfolio_lang";
+const defaultLang = "en";
+
+function setLang(lang) {
+  const dict = I18N[lang] || I18N[defaultLang];
+
+  document.documentElement.lang = lang;
+  localStorage.setItem(LANG_KEY, lang);
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (dict[key]) el.textContent = dict[key];
+  });
+
+  // update active button
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+}
+
+function initLang() {
+  const saved = localStorage.getItem(LANG_KEY) || defaultLang;
+  setLang(saved);
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", () => setLang(btn.dataset.lang));
+  });
+}
+
+function initRevealAnimations() {
+  const items = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  items.forEach(el => io.observe(el));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initLang();
+  initRevealAnimations();
+});
