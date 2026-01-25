@@ -62,7 +62,7 @@ const I18N = {
     btn_download_zip: "Download ZIP",
     btn_back_home: "Back to Home",
 
-    // Sticky bar translations
+    // Sticky bar
     sticky_zip_title: "EnergyCast Poland",
     sticky_zip_sub: "Download project ZIP from GitHub",
     btn_close: "Close"
@@ -129,113 +129,7 @@ const I18N = {
     btn_download_zip: "Скачать ZIP",
     btn_back_home: "Назад",
 
-    // Sticky bar translations
+    // Sticky bar
     sticky_zip_title: "EnergyCast Poland",
     sticky_zip_sub: "Скачать ZIP проекта с GitHub",
-    btn_close: "Закрыть"
-  }
-};
-
-const LANG_KEY = "portfolio_lang";
-const defaultLang = "en";
-const STICKY_KEY = "sticky_zip_closed";
-
-function setLang(lang) {
-  const dict = I18N[lang] || I18N[defaultLang];
-  document.documentElement.lang = lang;
-  localStorage.setItem(LANG_KEY, lang);
-
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (dict[key]) el.textContent = dict[key];
-  });
-
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.lang === lang);
-  });
-}
-
-function initLang() {
-  const saved = localStorage.getItem(LANG_KEY) || defaultLang;
-  setLang(saved);
-
-  document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.addEventListener("click", () => setLang(btn.dataset.lang));
-  });
-}
-
-function initRevealAnimations() {
-  const items = document.querySelectorAll(".reveal");
-  if (!items.length) return;
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  items.forEach(el => io.observe(el));
-}
-
-function initZipDownloadAnimation() {
-  const btns = document.querySelectorAll("[data-zip-download]");
-  if (!btns.length) return;
-
-  btns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault(); // keep same tab
-
-      const url = btn.getAttribute("href");
-
-      // Save original label once
-      const label = btn.querySelector(".zip-label");
-      const original = label ? label.textContent : btn.textContent.trim();
-      if (!btn.getAttribute("data-original-label")) {
-        btn.setAttribute("data-original-label", original);
-      }
-
-      btn.classList.add("loading");
-
-      if (label) label.textContent = "Preparing...";
-      // Start download in the same tab
-      window.location.href = url;
-
-      setTimeout(() => {
-        if (label) label.textContent = "Starting download...";
-      }, 900);
-
-      setTimeout(() => {
-        btn.classList.remove("loading");
-        const back = btn.getAttribute("data-original-label") || original;
-        if (label) label.textContent = back;
-      }, 2200);
-    });
-  });
-}
-
-function initStickyClose() {
-  const bar = document.getElementById("stickyZipBar");
-  const btn = document.getElementById("stickyZipClose");
-  if (!bar || !btn) return;
-
-  // restore hidden state
-  if (localStorage.getItem(STICKY_KEY) === "1") {
-    bar.style.display = "none";
-    return;
-  }
-
-  btn.addEventListener("click", () => {
-    bar.style.display = "none";
-    localStorage.setItem(STICKY_KEY, "1");
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  initLang();
-  initRevealAnimations();
-  initZipDownloadAnimation();
-  initStickyClose();
-});
+    btn_close: "Закрыть"_
