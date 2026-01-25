@@ -9,114 +9,119 @@
 </head>
 <body>
 
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="brand">
-        <div class="brand-badge" aria-hidden="true"></div>
-        <div>Artem Logush</div>
+<div class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-badge" aria-hidden="true"></div>
+      <div>Artem Logush</div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a href="index.html#skills" data-i18n="nav_skills">Skills</a>
+      <a href="index.html#contacts" data-i18n="nav_contacts">Contacts</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="lang" aria-label="Language toggle">
+        <button class="lang-btn active" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="ru" type="button">RU</button>
       </div>
 
-      <div class="nav-links">
-        <a href="index.html" data-i18n="nav_home">Home</a>
-        <a href="projects.html" data-i18n="nav_projects">Projects</a>
-        <a href="index.html#skills" data-i18n="nav_skills">Skills</a>
-        <a href="index.html#contacts" data-i18n="nav_contacts">Contacts</a>
-      </div>
+      <a class="btn-zip"
+         href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
+         target="_blank" rel="noopener"
+         data-i18n="nav_download">
+        ⬇ Download ZIP
+      </a>
+    </div>
+  </div>
+</div>
 
-      <div class="nav-right">
-        <div class="lang" aria-label="Language toggle">
-          <button class="lang-btn active" data-lang="en" type="button">EN</button>
-          <button class="lang-btn" data-lang="ru" type="button">RU</button>
-        </div>
+<div class="container">
 
-        <a class="btn btn-primary"
-           href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
-           target="_blank" rel="noopener"
-           data-i18n="nav_download">Download ZIP</a>
-      </div>
+  <div class="section reveal">
+    <div class="card card-pad">
+      <p class="kicker" data-i18n="projects_page_kicker">Portfolio</p>
+      <h1 style="margin-top:0;" data-i18n="projects_page_title">Projects</h1>
+      <p class="subtitle" style="margin-bottom:0;" data-i18n="projects_page_subtitle">
+        A short overview of my projects with links and key details.
+      </p>
     </div>
   </div>
 
-  <div class="container">
+  <div class="section reveal">
+    <div class="card card-pad project-card">
+      <div>
+        <div class="project-head">
+          <h2 style="margin:0;" data-i18n="proj_energy_title">EnergyCast Poland</h2>
+          <span class="badge" data-i18n="proj_energy_tag">Time Series • PyTorch</span>
+        </div>
 
-    <div class="section reveal">
-      <div class="card card-pad">
-        <p class="kicker" data-i18n="projects_page_kicker">Portfolio</p>
-        <h1 style="margin-top:0;" data-i18n="projects_page_title">Projects</h1>
-        <p class="subtitle" style="margin-bottom:0;" data-i18n="projects_page_subtitle">
-          A short overview of my projects with links and key details.
+        <p class="muted" data-i18n="proj_energy_desc">
+          Electricity consumption forecasting for the next 24 hours using an ANN model trained on historical energy + weather features.
+          Clean modular pipeline: preprocessing → training → inference.
+        </p>
+
+        <div class="grid">
+          <div class="col-6">
+            <b data-i18n="proj_features">Key features</b>
+            <ul class="list">
+              <li data-i18n="proj_feat_1">Sliding window: 30 days → 24h forecast</li>
+              <li data-i18n="proj_feat_2">Normalization via MinMaxScaler</li>
+              <li data-i18n="proj_feat_3">PyTorch ANN (512 → 256 → 24)</li>
+              <li data-i18n="proj_feat_4">Inference pipeline + plots</li>
+              <li data-i18n="proj_feat_5">CSV + optional binary export</li>
+            </ul>
+          </div>
+
+          <div class="col-6">
+            <b data-i18n="proj_stack">Tech stack</b>
+            <ul class="list">
+              <li data-i18n="proj_stack_1">Python, PyTorch</li>
+              <li data-i18n="proj_stack_2">Pandas, NumPy</li>
+              <li data-i18n="proj_stack_3">Scikit-learn, Joblib</li>
+              <li data-i18n="proj_stack_4">Matplotlib</li>
+              <li data-i18n="proj_stack_5">Git/GitHub</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary"
+             href="https://github.com/Artiprt107/EnergyCast-Poland"
+             target="_blank" rel="noopener"
+             data-i18n="btn_view_repo">View Repository</a>
+
+          <a class="btn-zip"
+             href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
+             target="_blank" rel="noopener"
+             data-i18n="btn_download_zip">
+            ⬇ Download ZIP
+          </a>
+
+          <a class="btn" href="index.html" data-i18n="btn_back_home">Back to Home</a>
+        </div>
+      </div>
+
+      <div class="project-visual">
+        <b>Quick stats</b>
+        <div class="kpi">
+          <div class="pill"><span>Input</span><span>930</span></div>
+          <div class="pill"><span>Output</span><span>24</span></div>
+          <div class="pill"><span>Window</span><span>30 days</span></div>
+          <div class="pill"><span>Model</span><span>ANN</span></div>
+        </div>
+        <p class="muted" style="margin-top:12px;">
+          Tip: Later you can add a screenshot here (forecast plot) as an image.
         </p>
       </div>
     </div>
-
-    <div class="section reveal">
-      <div class="card card-pad project-card col-12">
-        <div>
-          <div class="project-head">
-            <h2 style="margin:0;" data-i18n="proj_energy_title">EnergyCast Poland</h2>
-            <span class="badge" data-i18n="proj_energy_tag">Time Series • PyTorch</span>
-          </div>
-
-          <p class="muted" data-i18n="proj_energy_desc">
-            Electricity consumption forecasting for the next 24 hours using an ANN model trained on historical energy + weather features. Clean modular pipeline: preprocessing → training → inference.
-          </p>
-
-          <div class="grid">
-            <div class="col-6">
-              <b data-i18n="proj_features">Key features</b>
-              <ul class="list">
-                <li data-i18n="proj_feat_1">Sliding window: 30 days → 24h forecast</li>
-                <li data-i18n="proj_feat_2">Normalization via MinMaxScaler</li>
-                <li data-i18n="proj_feat_3">PyTorch ANN (512 → 256 → 24)</li>
-                <li data-i18n="proj_feat_4">Inference pipeline + plots</li>
-                <li data-i18n="proj_feat_5">CSV + optional binary export</li>
-              </ul>
-            </div>
-
-            <div class="col-6">
-              <b data-i18n="proj_stack">Tech stack</b>
-              <ul class="list">
-                <li data-i18n="proj_stack_1">Python, PyTorch</li>
-                <li data-i18n="proj_stack_2">Pandas, NumPy</li>
-                <li data-i18n="proj_stack_3">Scikit-learn, Joblib</li>
-                <li data-i18n="proj_stack_4">Matplotlib</li>
-                <li data-i18n="proj_stack_5">Git/GitHub</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary"
-               href="https://github.com/Artiprt107/EnergyCast-Poland"
-               target="_blank" rel="noopener"
-               data-i18n="btn_view_repo">View Repository</a>
-
-            <a class="btn"
-               href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
-               target="_blank" rel="noopener"
-               data-i18n="btn_download_zip">Download ZIP</a>
-
-            <a class="btn" href="index.html" data-i18n="btn_back_home">Back to Home</a>
-          </div>
-        </div>
-
-        <div class="project-visual">
-          <b>Quick stats</b>
-          <div class="kpi">
-            <div class="pill"><span>Input</span><span>930</span></div>
-            <div class="pill"><span>Output</span><span>24</span></div>
-            <div class="pill"><span>Window</span><span>30 days</span></div>
-            <div class="pill"><span>Model</span><span>ANN</span></div>
-          </div>
-          <p class="muted" style="margin-top:12px;">
-            Tip: Later you can add a screenshot here (forecast plot) as an image.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer" data-i18n="footer">© 2026 Artem Logush</div>
   </div>
+
+  <div class="footer" data-i18n="footer">© 2026 Artem Logush</div>
+</div>
 
 </body>
 </html>
