@@ -1,262 +1,97 @@
-:root{
-  --bg: #0b1220;
-  --panel: rgba(255,255,255,0.06);
-  --panel-2: rgba(255,255,255,0.09);
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --brand: #38bdf8;
-  --brand-2: #22c55e;
-  --border: rgba(255,255,255,0.10);
-  --shadow: 0 20px 60px rgba(0,0,0,0.35);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects | Artem Logush</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-*{ box-sizing: border-box; }
-html, body{ height: 100%; }
-body{
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: radial-gradient(1200px 600px at 20% 0%, rgba(56,189,248,0.18), transparent 55%),
-              radial-gradient(1000px 500px at 80% 20%, rgba(34,197,94,0.10), transparent 55%),
-              var(--bg);
-  color: var(--text);
-  line-height: 1.55;
-}
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div>Artem Logush</div>
+      </div>
 
-a{ color: var(--brand); text-decoration: none; }
-a:hover{ text-decoration: underline; }
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contacts">Contacts</a>
+      </div>
 
-.container{
-  width: min(1050px, 92vw);
-  margin: 0 auto;
-  padding: 26px 0 60px;
-}
+      <div class="nav-cta">
+        <a class="btn" href="https://github.com/Artiprt107" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
 
-/* Top nav */
-.nav{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(12px);
-  background: rgba(11,18,32,0.55);
-  border-bottom: 1px solid var(--border);
-}
+  <div class="container">
 
-.nav-inner{
-  width: min(1050px, 92vw);
-  margin: 0 auto;
-  padding: 14px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
+    <div class="section">
+      <div class="card card-pad">
+        <p class="kicker">Portfolio</p>
+        <h1 style="margin-top:0;">Projects</h1>
+        <p class="subtitle" style="margin-bottom:0;">
+          A short overview of my projects with links and key details.
+        </p>
+      </div>
+    </div>
 
-.brand{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-}
+    <div class="section">
+      <div class="grid">
 
-.brand-badge{
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(56,189,248,0.9), rgba(34,197,94,0.7));
-  box-shadow: var(--shadow);
-}
+        <!-- Project card -->
+        <div class="card card-pad col-12">
+          <div class="project-title">
+            <h2 style="margin:0;">EnergyCast Poland</h2>
+            <span class="badge">Time Series • PyTorch</span>
+          </div>
 
-.nav-links{
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  flex-wrap: wrap;
-}
+          <p class="muted">
+            Electricity consumption forecasting for the next 24 hours using an ANN model trained on
+            historical energy + weather features. Clean modular pipeline: preprocessing → training → inference.
+          </p>
 
-.nav-links a{
-  color: var(--text);
-  opacity: 0.85;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: 1px solid transparent;
-}
-.nav-links a:hover{
-  opacity: 1;
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.08);
-  text-decoration: none;
-}
+          <div class="grid">
+            <div class="col-6">
+              <b>Key features</b>
+              <ul class="list">
+                <li>Sliding window: 30 days → 24h forecast</li>
+                <li>Normalization via MinMaxScaler</li>
+                <li>PyTorch ANN (512 → 256 → 24)</li>
+                <li>Inference pipeline + plots</li>
+                <li>CSV + optional binary export</li>
+              </ul>
+            </div>
 
-.nav-cta{
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
+            <div class="col-6">
+              <b>Tech stack</b>
+              <ul class="list">
+                <li>Python, PyTorch</li>
+                <li>Pandas, NumPy</li>
+                <li>Scikit-learn, Joblib</li>
+                <li>Matplotlib</li>
+                <li>Git/GitHub</li>
+              </ul>
+            </div>
+          </div>
 
-.btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-  color: var(--text);
-  text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-.btn:hover{ background: rgba(255,255,255,0.10); text-decoration: none; }
-.btn-primary{
-  border-color: rgba(56,189,248,0.35);
-  background: linear-gradient(135deg, rgba(56,189,248,0.22), rgba(34,197,94,0.10));
-}
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/Artiprt107/EnergyCast-Poland" target="_blank" rel="noopener">
+              View Repository
+            </a>
+            <a class="btn" href="index.html">Back to Home</a>
+          </div>
+        </div>
 
-/* Hero */
-.hero{
-  margin-top: 26px;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 18px;
-  align-items: stretch;
-}
+      </div>
+    </div>
 
-.card{
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-}
+    <div class="footer">© 2026 Artem Logush</div>
+  </div>
 
-.card-pad{ padding: 22px; }
-
-.kicker{
-  color: var(--muted);
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  font-size: 14px;
-  margin: 0 0 8px;
-}
-
-h1{
-  margin: 0 0 10px;
-  font-size: clamp(28px, 3.4vw, 44px);
-  line-height: 1.15;
-}
-
-.subtitle{
-  margin: 0 0 16px;
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.hero-actions{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-
-.profile{
-  display: grid;
-  gap: 14px;
-  align-content: start;
-}
-
-.avatar{
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-}
-
-.avatar img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.pills{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.pill{
-  padding: 7px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.05);
-  color: rgba(229,231,235,0.92);
-  font-size: 13px;
-}
-
-/* Sections */
-.section{
-  margin-top: 18px;
-}
-
-.section h2{
-  margin: 0 0 12px;
-  font-size: 20px;
-  letter-spacing: 0.2px;
-}
-
-.grid{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 14px;
-}
-
-.col-8{ grid-column: span 8; }
-.col-4{ grid-column: span 4; }
-.col-6{ grid-column: span 6; }
-.col-12{ grid-column: span 12; }
-
-.list{
-  margin: 10px 0 0;
-  padding-left: 18px;
-  color: rgba(229,231,235,0.92);
-}
-
-.project{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.project-title{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.badge{
-  font-size: 12px;
-  color: rgba(229,231,235,0.92);
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(56,189,248,0.10);
-  border: 1px solid rgba(56,189,248,0.22);
-}
-
-.muted{ color: var(--muted); }
-
-.footer{
-  margin-top: 34px;
-  text-align: center;
-  color: rgba(148,163,184,0.9);
-  font-size: 13px;
-}
-
-/* Responsive */
-@media (max-width: 900px){
-  .hero{ grid-template-columns: 1fr; }
-  .col-8, .col-4, .col-6{ grid-column: span 12; }
-  .nav-cta{ display: none; }
-}
+</body>
+</html>
