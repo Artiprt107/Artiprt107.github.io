@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <script defer src="app.js"></script>
 </head>
-<body class="page">
+<body>
 
 <div class="nav">
   <div class="nav-inner">
@@ -18,7 +18,7 @@
 
     <div class="nav-links">
       <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a href="projects.html" class="active" data-i18n="nav_projects">Projects</a>
       <a href="index.html#skills" data-i18n="nav_skills">Skills</a>
       <a href="index.html#contacts" data-i18n="nav_contacts">Contacts</a>
     </div>
@@ -89,11 +89,13 @@
             View Repository
           </a>
 
+          <!-- ZIP button with animation (same tab) -->
           <a class="btn-zip"
              href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
-             data-zip-download>
+             data-zip-download
+             data-i18n="btn_download_zip">
             <span class="zip-spinner" aria-hidden="true"></span>
-            ⬇ <span class="zip-label" data-i18n="btn_download_zip">Download ZIP</span>
+            ⬇ <span class="zip-label">Download ZIP</span>
           </a>
 
           <a class="btn" href="index.html" data-i18n="btn_back_home">
@@ -118,27 +120,6 @@
   </div>
 
   <div class="footer" data-i18n="footer">© 2026 Artem Logush</div>
-</div>
-
-<!-- Sticky ZIP bar (bottom) -->
-<div class="sticky-zip" id="stickyZipBar">
-  <div class="sticky-zip-inner">
-    <div class="sticky-zip-text">
-      <div class="sticky-zip-title" data-i18n="sticky_zip_title">EnergyCast Poland</div>
-      <div class="sticky-zip-sub" data-i18n="sticky_zip_sub">Download project ZIP from GitHub</div>
-    </div>
-
-    <div class="sticky-zip-actions">
-      <a class="btn-zip"
-         href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
-         data-zip-download>
-        <span class="zip-spinner" aria-hidden="true"></span>
-        ⬇ <span class="zip-label" data-i18n="btn_download_zip">Download ZIP</span>
-      </a>
-
-      <a class="btn" href="index.html" data-i18n="nav_home">Home</a>
-    </div>
-  </div>
 </div>
 
 </body>
