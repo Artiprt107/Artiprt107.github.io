@@ -1,5 +1,3 @@
-// app.js — language toggle + animations
-
 const I18N = {
   en: {
     nav_home: "Home",
@@ -80,7 +78,7 @@ const I18N = {
 
     about_title: "Обо мне",
     about_text:
-      "Делаю end-to-end ML пайплайны: препроцессинг → обучение модели → инференс → оценка/визуализация. Важны чистая структура, воспроизводимость и читаемый код.",
+      "Делаю end-to-end ML пайплайны: препроцессинг → обучение → инференс → оценка/визуализация. Важны структура, воспроизводимость и читаемый код.",
 
     highlight_title: "Главный проект",
     highlight_desc:
@@ -107,7 +105,7 @@ const I18N = {
     proj_energy_title: "EnergyCast Poland",
     proj_energy_tag: "Time Series • PyTorch",
     proj_energy_desc:
-      "Прогноз потребления электроэнергии на 24 часа с помощью ANN, обученной на исторических данных и погодных признаках. Чистый пайплайн: данные → обучение → прогноз.",
+      "Прогноз потребления электроэнергии на 24 часа с помощью ANN по историческим данным и погодным признакам. Пайплайн: данные → обучение → прогноз.",
     proj_features: "Функции",
     proj_stack: "Технологии",
     proj_feat_1: "Скользящее окно: 30 дней → 24 часа",
@@ -131,7 +129,6 @@ const defaultLang = "en";
 
 function setLang(lang) {
   const dict = I18N[lang] || I18N[defaultLang];
-
   document.documentElement.lang = lang;
   localStorage.setItem(LANG_KEY, lang);
 
@@ -140,7 +137,6 @@ function setLang(lang) {
     if (dict[key]) el.textContent = dict[key];
   });
 
-  // update active button
   document.querySelectorAll(".lang-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === lang);
   });
