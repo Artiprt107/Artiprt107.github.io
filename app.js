@@ -1,4 +1,4 @@
-// app.js — language toggle + reveal animations + ZIP download animation
+// app.js — language toggle + reveal animations + ZIP download animation + nav active + page transitions
 
 const I18N = {
   en: {
@@ -62,7 +62,6 @@ const I18N = {
     btn_download_zip: "Download ZIP",
     btn_back_home: "Back to Home",
 
-    // Sticky bar
     sticky_zip_title: "EnergyCast Poland",
     sticky_zip_sub: "Download project ZIP from GitHub"
   },
@@ -128,7 +127,6 @@ const I18N = {
     btn_download_zip: "Скачать ZIP",
     btn_back_home: "Назад",
 
-    // Sticky bar
     sticky_zip_title: "EnergyCast Poland",
     sticky_zip_sub: "Скачать ZIP проекта с GitHub"
   }
@@ -161,6 +159,91 @@ function initLang() {
   });
 }
 
+// ----- Active nav -----
+function normalizePath(p) {
+  const x = (p || "").split("?")[0].split("#")[0];
+  return x.replace(/\/+$/, "");
+}
+
+function setActiveNav() {
+  const path = normalizePath(location.pathname).toLowerCase();
+  const hash = (location.hash || "").toLowerCase();
+
+  const links = document.querySelectorAll(".nav-links a");
+  links.forEach(a => a.classList.remove("active"));
+
+  // 1) exact page match (projects.html / index.html)
+  links.forEach(a => {
+    const href = a.getAttribute("href") || "";
+    const hrefPath = normalizePath(href).toLowerCase();
+
+    // link to current page (e.g. projects.html)
+    if (hrefPath && !href.includes("#")) {
+      if (path.endsWith(hrefPath) || (hrefPath === "index.html" && (path.endsWith("/") || path.endsWith("index.html")))) {
+        a.classList.add("active");
+      }
+    }
+  });
+
+  // 2) if we are on index.html with hash, highlight matching anchor link
+  if ((path.endsWith("/") || path.endsWith("index.html")) && hash) {
+    links.forEach(a => {
+      const href = (a.getAttribute("href") || "").toLowerCase();
+      if (href.includes("#") && href.endsWith(hash)) {
+        links.forEach(x => x.classList.remove("active"));
+        a.classList.add("active");
+      }
+    });
+  }
+}
+
+// ----- Page transitions -----
+function initPageTransitions() {
+  // enter animation
+  document.documentElement.classList.add("page-enter");
+  requestAnimationFrame(() => {
+    document.documentElement.classList.add("page-enter-active");
+  });
+
+  // intercept internal navigation (same tab)
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (!a) return;
+
+    const href = a.getAttribute("href");
+    if (!href) return;
+
+    // allow new tab / external / downloads / anchors in same page without reload
+    if (a.target === "_blank") return;
+    if (href.startsWith("http")) return;
+    if (href.startsWith("mailto:") || href.startsWith("tel:")) return;
+    if (a.hasAttribute("download")) return;
+
+    // allow ZIP download animation handler to work
+    if (a.hasAttribute("data-zip-download")) return;
+
+    // same-page hash change - no transition needed
+    const isHashOnly = href.startsWith("#");
+    if (isHashOnly) return;
+
+    // if navigating to same page different hash, skip
+    const currentNoHash = location.pathname + location.search;
+    const targetNoHash = href.split("#")[0];
+    if (targetNoHash === "" || targetNoHash === currentNoHash) return;
+
+    e.preventDefault();
+
+    document.documentElement.classList.add("page-exit");
+    document.documentElement.classList.add("page-exit-active");
+
+    // navigate after animation
+    setTimeout(() => {
+      window.location.href = href;
+    }, 260);
+  });
+}
+
+// ----- Reveal animations -----
 function initRevealAnimations() {
   const items = document.querySelectorAll(".reveal");
   if (!items.length) return;
@@ -177,6 +260,7 @@ function initRevealAnimations() {
   items.forEach(el => io.observe(el));
 }
 
+// ----- ZIP animation -----
 function initZipDownloadAnimation() {
   const btns = document.querySelectorAll("[data-zip-download]");
   if (!btns.length) return;
@@ -187,7 +271,6 @@ function initZipDownloadAnimation() {
 
       const url = btn.getAttribute("href");
 
-      // Save original label once
       const label = btn.querySelector(".zip-label");
       const original = label ? label.textContent : btn.textContent.trim();
       if (!btn.getAttribute("data-original-label")) {
@@ -197,7 +280,6 @@ function initZipDownloadAnimation() {
       btn.classList.add("loading");
 
       if (label) label.textContent = "Preparing...";
-      // Start download in the same tab
       window.location.href = url;
 
       setTimeout(() => {
@@ -215,6 +297,10 @@ function initZipDownloadAnimation() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initLang();
+  initPageTransitions();
   initRevealAnimations();
   initZipDownloadAnimation();
+
+  setActiveNav();
+  window.addEventListener("hashchange", setActiveNav);
 });
