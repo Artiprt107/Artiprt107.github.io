@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Artem Logush | ML Developer</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
 </head>
 <body>
 
-  <!-- Top navigation -->
   <div class="nav">
     <div class="nav-inner">
       <div class="brand">
@@ -17,29 +17,34 @@
       </div>
 
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contacts">Contacts</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="projects.html" data-i18n="nav_projects">Projects</a>
+        <a href="#skills" data-i18n="nav_skills">Skills</a>
+        <a href="#contacts" data-i18n="nav_contacts">Contacts</a>
       </div>
 
-      <div class="nav-cta">
-        <a class="btn btn-primary" href="projects.html">View Projects</a>
-        <a class="btn" href="https://github.com/Artiprt107" target="_blank" rel="noopener">GitHub</a>
+      <div class="nav-right">
+        <div class="lang" aria-label="Language toggle">
+          <button class="lang-btn active" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="ru" type="button">RU</button>
+        </div>
+
+        <a class="btn btn-primary"
+           href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
+           target="_blank" rel="noopener"
+           data-i18n="nav_download">Download ZIP</a>
       </div>
     </div>
   </div>
 
   <div class="container">
 
-    <!-- Hero -->
     <div class="hero">
-      <div class="card card-pad">
-        <p class="kicker">Machine Learning • Python • Time Series</p>
-        <h1>ML Developer building clean pipelines and forecasts</h1>
-        <p class="subtitle">
-          I focus on time series forecasting, neural networks, and data processing using Python and PyTorch.
-          This portfolio highlights my learning projects and engineering-style structure.
+      <div class="card card-pad reveal">
+        <p class="kicker" data-i18n="hero_kicker">Machine Learning • Python • Time Series</p>
+        <h1 data-i18n="hero_title">ML Developer building clean pipelines and forecasts</h1>
+        <p class="subtitle" data-i18n="hero_subtitle">
+          I focus on time series forecasting, neural networks, and data processing using Python and PyTorch. This portfolio highlights my learning projects and engineering-style structure.
         </p>
 
         <div class="pills">
@@ -52,15 +57,15 @@
         </div>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="projects.html">Open Projects</a>
-          <a class="btn" href="https://github.com/Artiprt107/EnergyCast-Poland" target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="projects.html" data-i18n="hero_btn_projects">Open Projects</a>
+          <a class="btn" href="https://github.com/Artiprt107/EnergyCast-Poland" target="_blank" rel="noopener" data-i18n="hero_btn_repo">
             EnergyCast Poland Repo
           </a>
-          <a class="btn" href="#contacts">Contact</a>
+          <a class="btn" href="#contacts" data-i18n="hero_btn_contact">Contact</a>
         </div>
       </div>
 
-      <div class="card card-pad profile">
+      <div class="card card-pad profile reveal">
         <div class="avatar">
           <img src="profile.jpg" alt="Profile photo of Artem Logush" />
         </div>
@@ -70,70 +75,66 @@
           <span class="pill">Open to opportunities</span>
         </div>
         <p class="muted" style="margin:0;">
-          Tip: If you don’t want a real photo, you can replace <b>profile.jpg</b> with any image.
+          Tip: You can replace <b>profile.jpg</b> with any image.
         </p>
       </div>
     </div>
 
-    <!-- Sections -->
-    <div class="section">
+    <div class="section reveal">
       <div class="grid">
         <div class="card card-pad col-8">
-          <h2>About</h2>
-          <p class="muted" style="margin:0;">
-            I build end-to-end ML pipelines: preprocessing → model training → inference → evaluation/visualization.
-            I care about clean structure, reproducibility, and readable code.
+          <h2 data-i18n="about_title">About</h2>
+          <p class="muted" style="margin:0;" data-i18n="about_text">
+            I build end-to-end ML pipelines: preprocessing → model training → inference → evaluation/visualization. I care about clean structure, reproducibility, and readable code.
           </p>
         </div>
 
         <div class="card card-pad col-4">
-          <h2>Highlighted project</h2>
-          <div class="project">
-            <div class="project-title">
-              <b>EnergyCast Poland</b>
-              <span class="badge">PyTorch ANN</span>
-            </div>
-            <p class="muted" style="margin:0;">
-              24-hour electricity consumption forecasting using historical energy + weather features.
-            </p>
-            <div class="hero-actions" style="margin-top:8px;">
-              <a class="btn btn-primary" href="projects.html">Details</a>
-              <a class="btn" href="https://github.com/Artiprt107/EnergyCast-Poland" target="_blank" rel="noopener">GitHub</a>
-            </div>
+          <h2 data-i18n="highlight_title">Highlighted project</h2>
+          <div class="project-head">
+            <b>EnergyCast Poland</b>
+            <span class="badge">PyTorch ANN</span>
+          </div>
+          <p class="muted" style="margin:0;" data-i18n="highlight_desc">
+            24-hour electricity consumption forecasting using historical energy + weather features.
+          </p>
+          <div class="hero-actions" style="margin-top:10px;">
+            <a class="btn btn-primary" href="projects.html">Details</a>
+            <a class="btn" href="https://github.com/Artiprt107/EnergyCast-Poland" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="section" id="skills">
+    <div class="section reveal" id="skills">
       <div class="card card-pad">
-        <h2>Skills</h2>
+        <h2 data-i18n="skills_title">Skills</h2>
         <div class="grid">
           <div class="col-6">
-            <b>ML & Data</b>
+            <b data-i18n="skills_ml">ML & Data</b>
             <ul class="list">
-              <li>Time series forecasting</li>
-              <li>Neural networks (ANN) in PyTorch</li>
-              <li>Data preprocessing & normalization</li>
-              <li>Train/test split (time-ordered)</li>
+              <li data-i18n="skills_ml_1">Time series forecasting</li>
+              <li data-i18n="skills_ml_2">Neural networks (ANN) in PyTorch</li>
+              <li data-i18n="skills_ml_3">Data preprocessing & normalization</li>
+              <li data-i18n="skills_ml_4">Train/test split (time-ordered)</li>
             </ul>
           </div>
           <div class="col-6">
-            <b>Engineering</b>
+            <b data-i18n="skills_eng">Engineering</b>
             <ul class="list">
-              <li>Clean project structure (src/scripts)</li>
-              <li>Reproducible runs and simple CLI runners</li>
-              <li>Git & GitHub workflows</li>
-              <li>Readable code and modular design</li>
+              <li data-i18n="skills_eng_1">Clean project structure (src/scripts)</li>
+              <li data-i18n="skills_eng_2">Reproducible runs and simple runners</li>
+              <li data-i18n="skills_eng_3">Git & GitHub workflows</li>
+              <li data-i18n="skills_eng_4">Readable code and modular design</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="section" id="contacts">
+    <div class="section reveal" id="contacts">
       <div class="card card-pad">
-        <h2>Contacts</h2>
+        <h2 data-i18n="contacts_title">Contacts</h2>
         <p style="margin: 0 0 8px;">
           GitHub:
           <a href="https://github.com/Artiprt107" target="_blank" rel="noopener">https://github.com/Artiprt107</a>
@@ -145,7 +146,7 @@
       </div>
     </div>
 
-    <div class="footer">© 2026 Artem Logush</div>
+    <div class="footer" data-i18n="footer">© 2026 Artem Logush</div>
   </div>
 
 </body>
