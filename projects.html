@@ -88,11 +88,13 @@
             View Repository
           </a>
 
+          <!-- ZIP button with animation (same tab) -->
           <a class="btn-zip"
              href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
-             target="_blank" rel="noopener"
+             data-zip-download
              data-i18n="btn_download_zip">
-            ⬇ Download ZIP
+            <span class="zip-spinner" aria-hidden="true"></span>
+            ⬇ <span class="zip-label">Download ZIP</span>
           </a>
 
           <a class="btn" href="index.html" data-i18n="btn_back_home">
@@ -104,16 +106,42 @@
       <div class="project-visual">
         <b>Quick stats</b>
         <div class="kpi">
-          <div class="pill">Input: 930</div>
-          <div class="pill">Output: 24</div>
-          <div class="pill">Window: 30 days</div>
-          <div class="pill">Model: ANN</div>
+          <div class="pill"><span>Input</span><span>930</span></div>
+          <div class="pill"><span>Output</span><span>24</span></div>
+          <div class="pill"><span>Window</span><span>30 days</span></div>
+          <div class="pill"><span>Model</span><span>ANN</span></div>
         </div>
+        <p class="muted" style="margin-top:12px;">
+          Tip: Later you can add a screenshot here (forecast plot) as an image.
+        </p>
       </div>
     </div>
   </div>
 
   <div class="footer" data-i18n="footer">© 2026 Artem Logush</div>
+</div>
+
+<!-- Sticky ZIP bar (bottom) -->
+<div class="sticky-zip" id="stickyZipBar">
+  <div class="sticky-zip-inner">
+    <div class="sticky-zip-text">
+      <div class="sticky-zip-title" data-i18n="sticky_zip_title">EnergyCast Poland</div>
+      <div class="sticky-zip-sub" data-i18n="sticky_zip_sub">Download project ZIP from GitHub</div>
+    </div>
+
+    <div class="sticky-zip-actions">
+      <a class="btn-zip"
+         href="https://github.com/Artiprt107/EnergyCast-Poland/archive/refs/heads/main.zip"
+         data-zip-download>
+        <span class="zip-spinner" aria-hidden="true"></span>
+        ⬇ <span class="zip-label" data-i18n="btn_download_zip">Download ZIP</span>
+      </a>
+
+      <a class="btn" href="index.html" data-i18n="nav_home">Home</a>
+
+      <button class="sticky-close" type="button" id="stickyZipClose" aria-label="Close">✕</button>
+    </div>
+  </div>
 </div>
 
 </body>
