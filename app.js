@@ -24,6 +24,10 @@ const I18N = {
     highlight_desc:
       "24-hour electricity consumption forecasting using historical energy + weather features.",
 
+    skills_page_kicker: "Profile",
+    skills_page_subtitle: "A quick overview of the tools and skills I use in my projects.",
+    contacts_page_kicker: "Get in touch",
+    contacts_page_subtitle: "Links to reach me quickly.",
     skills_title: "Skills",
     skills_ml: "ML & Data",
     skills_eng: "Engineering",
@@ -62,7 +66,6 @@ const I18N = {
     btn_download_zip: "Download ZIP",
     btn_back_home: "Back to Home",
 
-    // Sticky bar
     sticky_zip_title: "EnergyCast Poland",
     sticky_zip_sub: "Download project ZIP from GitHub"
   },
@@ -90,6 +93,10 @@ const I18N = {
     highlight_desc:
       "Прогноз потребления электроэнергии на 24 часа по историческим данным и погоде.",
 
+    skills_page_kicker: "Профиль",
+    skills_page_subtitle: "Коротко о навыках и инструментах, которые я использую в проектах.",
+    contacts_page_kicker: "Связаться",
+    contacts_page_subtitle: "Ссылки, по которым со мной можно связаться.",
     skills_title: "Навыки",
     skills_ml: "ML и данные",
     skills_eng: "Инженерия",
@@ -128,7 +135,6 @@ const I18N = {
     btn_download_zip: "Скачать ZIP",
     btn_back_home: "Назад",
 
-    // Sticky bar
     sticky_zip_title: "EnergyCast Poland",
     sticky_zip_sub: "Скачать ZIP проекта с GitHub"
   }
@@ -177,19 +183,34 @@ function initRevealAnimations() {
   items.forEach(el => io.observe(el));
 }
 
+function upgradeHomeNavToPages() {
+  const path = (window.location.pathname || "").toLowerCase();
+  const isHome = path.endsWith("/") || path.endsWith("/index.html") || path === "";
+  if (!isHome) return;
+
+  const map = {
+    "#skills": "skills.html",
+    "#contacts": "contacts.html"
+  };
+
+  document.querySelectorAll('a[href="#skills"], a[href="#contacts"]').forEach(a => {
+    const href = a.getAttribute("href");
+    if (map[href]) a.setAttribute("href", map[href]);
+  });
+}
+
 function initZipDownloadAnimation() {
   const btns = document.querySelectorAll("[data-zip-download]");
   if (!btns.length) return;
 
   btns.forEach(btn => {
     btn.addEventListener("click", (e) => {
-      e.preventDefault(); // keep same tab
+      e.preventDefault();
 
       const url = btn.getAttribute("href");
-
-      // Save original label once
       const label = btn.querySelector(".zip-label");
       const original = label ? label.textContent : btn.textContent.trim();
+
       if (!btn.getAttribute("data-original-label")) {
         btn.setAttribute("data-original-label", original);
       }
@@ -197,7 +218,6 @@ function initZipDownloadAnimation() {
       btn.classList.add("loading");
 
       if (label) label.textContent = "Preparing...";
-      // Start download in the same tab
       window.location.href = url;
 
       setTimeout(() => {
@@ -215,6 +235,7 @@ function initZipDownloadAnimation() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initLang();
+  upgradeHomeNavToPages();
   initRevealAnimations();
   initZipDownloadAnimation();
 });
