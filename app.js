@@ -24,10 +24,6 @@ const I18N = {
     highlight_desc:
       "24-hour electricity consumption forecasting using historical energy + weather features.",
 
-    skills_page_kicker: "Profile",
-    skills_page_subtitle: "A quick overview of the tools and skills I use in my projects.",
-    contacts_page_kicker: "Get in touch",
-    contacts_page_subtitle: "Links to reach me quickly.",
     skills_title: "Skills",
     skills_ml: "ML & Data",
     skills_eng: "Engineering",
@@ -93,10 +89,6 @@ const I18N = {
     highlight_desc:
       "Прогноз потребления электроэнергии на 24 часа по историческим данным и погоде.",
 
-    skills_page_kicker: "Профиль",
-    skills_page_subtitle: "Коротко о навыках и инструментах, которые я использую в проектах.",
-    contacts_page_kicker: "Связаться",
-    contacts_page_subtitle: "Ссылки, по которым со мной можно связаться.",
     skills_title: "Навыки",
     skills_ml: "ML и данные",
     skills_eng: "Инженерия",
@@ -183,22 +175,6 @@ function initRevealAnimations() {
   items.forEach(el => io.observe(el));
 }
 
-function upgradeHomeNavToPages() {
-  const path = (window.location.pathname || "").toLowerCase();
-  const isHome = path.endsWith("/") || path.endsWith("/index.html") || path === "";
-  if (!isHome) return;
-
-  const map = {
-    "#skills": "skills.html",
-    "#contacts": "contacts.html"
-  };
-
-  document.querySelectorAll('a[href="#skills"], a[href="#contacts"]').forEach(a => {
-    const href = a.getAttribute("href");
-    if (map[href]) a.setAttribute("href", map[href]);
-  });
-}
-
 function initZipDownloadAnimation() {
   const btns = document.querySelectorAll("[data-zip-download]");
   if (!btns.length) return;
@@ -235,7 +211,6 @@ function initZipDownloadAnimation() {
 
 document.addEventListener("DOMContentLoaded", () => {
   initLang();
-  upgradeHomeNavToPages();
   initRevealAnimations();
   initZipDownloadAnimation();
 });
