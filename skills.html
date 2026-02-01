@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Skills | Artem Logush</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-badge" aria-hidden="true"></div>
+      <div>Artem Logush</div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="projects.html" data-i18n="nav_projects">Projects</a>
+      <a href="skills.html" data-i18n="nav_skills">Skills</a>
+      <a href="contacts.html" data-i18n="nav_contacts">Contacts</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="lang" aria-label="Language toggle">
+        <button class="lang-btn active" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="uk" type="button">UK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section reveal">
+    <div class="card card-pad">
+      <p class="kicker" data-i18n="skills_page_kicker">Profile</p>
+      <h1 style="margin-top:0;" data-i18n="skills_title">Skills</h1>
+      <p class="subtitle" style="margin-bottom:0;" data-i18n="skills_page_subtitle">
+        A quick overview of the tools and skills I use in my projects.
+      </p>
+    </div>
+  </div>
+
+  <div class="section reveal">
+    <div class="card card-pad">
+      <div class="grid">
+        <div class="col-6">
+          <b data-i18n="skills_ml">ML & Data</b>
+          <ul class="list">
+            <li data-i18n="skills_ml_1">Time series forecasting</li>
+            <li data-i18n="skills_ml_2">Neural networks (ANN) in PyTorch</li>
+            <li data-i18n="skills_ml_3">Data preprocessing & normalization</li>
+            <li data-i18n="skills_ml_4">Train/test split (time-ordered)</li>
+          </ul>
+        </div>
+
+        <div class="col-6">
+          <b data-i18n="skills_eng">Engineering</b>
+          <ul class="list">
+            <li data-i18n="skills_eng_1">Clean project structure (src/scripts)</li>
+            <li data-i18n="skills_eng_2">Reproducible runs and simple runners</li>
+            <li data-i18n="skills_eng_3">Git & GitHub workflows</li>
+            <li data-i18n="skills_eng_4">Readable code and modular design</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:16px;">
+        <a class="btn" href="index.html" data-i18n="btn_back_home">Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" data-i18n="footer">© 2026 Artem Logush</div>
+</div>
+
+</body>
+</html>
